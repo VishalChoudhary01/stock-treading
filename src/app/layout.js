@@ -1,5 +1,8 @@
-import { Poppins,Roboto,Roboto_Mono } from "next/font/google";
+import { Poppins,Roboto,Roboto_Mono,Kanit } from "next/font/google";
 import "./globals.css";
+import Footer from "./components/moleclues/footer";
+import Navbar from "./components/moleclues/navbar";
+import ClientProvider from "./components/provider/clientProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -13,8 +16,13 @@ const roboto = Roboto({
 });
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],   
-  weight: ["100", "200", "300", "400", "500", "600", "700", ],
+  weight: ["100", "200", "300", "400", "500", "600", "700" ],
   variable: "--font-roboto-mono",
+});
+const kanit = Kanit({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-kanit",
 });
 
 export const metadata = {
@@ -26,9 +34,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${roboto.variable} ${robotoMono.variable} antialiased`}
+        className={`${poppins.variable} ${kanit.variable} ${roboto.variable} ${robotoMono.variable} antialiased flex flex-col min-h-screen bg-contentBg dark:bg-contentDarkBg  text-textColor dark:text-textDarkColor duration-700 transition-all `}
       >
+        <ClientProvider>
+      <Navbar />
+        <main className="grow">
         {children}
+        </main>
+        <Footer />
+        </ClientProvider>
       </body>
     </html>
   );

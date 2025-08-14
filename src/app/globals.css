@@ -1,103 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
 
+
+  /* Background */
+  --contentBg: #FFFFFF;
+  --contentDarkBg: #121212;
+  --navbarBg: #F5F5F5;
+  --navbarDarkBg: #1E1E1E;
+
+  /* TEXT */
+  --linkDarkColor:#90CAF9;
+  --linkColor: #1E88E5;
+  --textColor: #212121;
+  --textDarkColor:#E0E0E0;
+
+
+  /* LOGO */
+  --logoGradientFrom: #1E88E5;
+  --logoGradientTo: #43A047;
+  --logoIcon:#057dd3;
   
-  /* Branding */
-  --color-primary: #0057FF;
-  --color-darkPrimary: #3399FF;
-  --color-primaryLight: #E3F2FD;
-  --color-darkPrimaryLight: #1E88E5;
-
-  --color-secondary: #FFC107;
-  --color-darkSecondary: #FFD54F;
-  --color-secondaryLight: #FFF8E1;
-  --color-darkSecondaryLight: #FFF3E0;
-
-  /* Backgrounds */
-  --color-bg: #FFFFFF;
-  --color-darkBg: #121212;
-
-  --color-surface: #F8F9FA;
-  --color-darkSurface: #1E1E1E;
-
-  --color-surfaceAlt: #F1F3F4;
-  --color-darkSurfaceAlt: #2A2A2A;
-
-  /* Text */
-  --color-textHeading: #212121;
-  --color-darkTextHeading: #E0E0E0;
-
-  --color-textBody: #4B4B4B;
-  --color-darkTextBody: #B0B0B0;
-
-  --color-textMuted: #757575;
-  --color-darkTextMuted: #8D8D8D;
-
-  --color-textInverse: #FFFFFF;
-  --color-darkTextInverse: #FFFFFF;
-
-  /* Borders & Dividers */
-  --color-border: #E0E0E0;
-  --color-darkBorder: #2C2C2C;
-
-  --color-divider: #DADCE0;
-  --color-darkDivider: #3A3A3A;
-
-  /* Status Colors */
-  --color-success: #00C853;
-  --color-darkSuccess: #00E676;
-
-  --color-successLight: #E8F5E9;
-  --color-darkSuccessLight: #1B5E20;
-
-  --color-error: #D50000;
-  --color-darkError: #FF5252;
-
-  --color-errorLight: #FFEBEE;
-  --color-darkErrorLight: #B71C1C;
-
-  --color-warning: #FFA000;
-  --color-darkWarning: #FFCA28;
-
-  --color-warningLight: #FFF3E0;
-  --color-darkWarningLight: #FFF3E0;
-
-  --color-info: #0288D1;
-  --color-darkInfo: #4FC3F7;
-
-  --color-infoLight: #E1F5FE;
-  --color-darkInfoLight: #E1F5FE;
-
-  /* Buttons */
-  --color-buttonBg: #0057FF;
-  --color-darkButtonBg: #3399FF;
-
-  --color-buttonText: #FFFFFF;
-  --color-darkButtonText: #FFFFFF;
-
-  --color-buttonHover: #0041CC;
-  --color-darkButtonHover: #1E88E5;
-
-  /* Shadows */
-  --color-shadow: rgba(0, 0, 0, 0.08);
-  --color-darkShadow: rgba(0, 0, 0, 0.5);
-
-  --color-shadowDeep: rgba(0, 0, 0, 0.15);
-  --color-darkShadowDeep: rgba(0, 0, 0, 0.7);
-
-  /* Charts */
-  --color-chartUp: #00C853;
-  --color-darkChartUp: #00E676;
-
-  --color-chartDown: #D50000;
-  --color-darkChartDown: #FF5252;
-
-  --color-chartNeutral: #9E9E9E;
-  --color-darkChartNeutral: #BDBDBD;
+  
 
 }
 
@@ -105,7 +33,22 @@
   
   --font-poppins: 'Poppins', sans-serif;
   --font-roboto: 'Roboto', sans-serif;
-  --font-robotoMono: 'Roboto Mono', monospace
+  --font-robotoMono: 'Roboto Mono', monospace;
+  --font-kanit: 'Kanit', sans-serif;
+
+  --color-primary:var(--primary);
+  --color-primaryDark:var(--color-primaryDark);
+  --color-logoGradientFrom:var(--logoGradientFrom);
+  --color-logoGradientTo:var(--logoGradientTo);
+  --color-logoIcon:var(--logoIcon);
+  --color-link:var(--linkColor);
+  --color-linkDark:var(--linkDarkColor);
+  --color-contentBg:var(--contentBg);
+  --color-contentDarkBg:var(--contentDarkBg);
+  --color-textColor:var(--textColor);
+  --color-textDarkColor:var(--textDarkColor);
+  --color-navbarBg:var(--navbarBg);
+  --color-navbarDarkBg:var(--navbarDarkBg);
 }
 
 /* Headings: Poppins (SemiBold / Bold)
@@ -118,3 +61,13 @@ UI Elements / Numbers: Roboto Mono (for tables, tickers)
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+@keyframes pulse {
+          0%, 100% { opacity: 0.8; transform: scaleY(1); }
+          50% { opacity: 1; transform: scaleY(1.05); }
+        }
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-3px); }
+        }
