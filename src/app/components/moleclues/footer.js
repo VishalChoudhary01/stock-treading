@@ -7,13 +7,7 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer
-      className="
-        w-full 
-        bg-footBg 
-        dark:bg-footDarkBg 
-        text-textColor dark:text-textDarkColor 
-        py-6 px-4 md:px-10 
-        border-t border-glassBorder dark:border-glassDarkBorder
+      className="w-full bg-footBg dark:bg-footDarkBg  text-textColor dark:text-textDarkColor py-6 px-4 md:px-10 border-t border-glassBorder dark:border-glassDarkBorder
         transition-colors duration-500
       "
     >

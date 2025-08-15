@@ -10,6 +10,10 @@
   /* Background */
   --contentBg: #FFFFFF;
   --contentDarkBg: #121212;
+  --contentGradToBG:#cdedf9b2;
+  --contentGradFromBG:#f1fafc;
+  --contentGradToDarkBG: #000103;
+  --contentGradFromDarkBG: #09090b;
   --navbarBg: #F5F5F5;
   --navbarDarkBg: #1E1E1E;
   --glassBg: #f2f8f7ae;
@@ -160,6 +164,10 @@
   --color-footDarkBg:var(--footDarkBg);  
   --color-linkHover:var(--linkHoverColor);
   --color-linkDarkHover:var(--linkDarkHoverColor);
+  --color-contentGradToBG:var(--contentGradToBG);
+  --color-contentGradFromBG:var(--contentGradFromBG);
+  --color-contentGradToDarkBG:var(--contentGradToDarkBG);
+  --color-contentGradFromDarkBG:var(--contentGradFromDarkBG);
 }
 
 @theme{
