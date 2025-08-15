@@ -1,53 +1,65 @@
 "use client";
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 const Loader = () => {
-  const tickerItems = ['AAPL', 'TSLA', 'MSFT', 'AMZN', 'GOOGL', 'NVDA', 'META'];
-  
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Ensure component only mounts on client
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
   return (
-    <div className="flex fixed bg-black/15 backdrop-blur-3xl inset-0 flex-col items-center justify-center space-y-4">
-      <div className="relative w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
+    <div className="fixed inset-0 bg-white dark:bg-gray-900/80 backdrop-blur-sm z-50 flex items-center justify-center">
+      <div className="flex flex-col items-center space-y-4 w-full max-w-xs">
+        {/* Progress container */}
+        <div className="relative w-full h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+          {/* Shimmer animation */}
+          <motion.div
+            className="absolute top-0 left-0 h-full w-1/2 bg-gradient-to-r from-transparent via-blue-500/40 to-transparent"
+            initial={{ x: '-100%' }}
+            animate={{ x: '300%' }}
+            transition={{
+              duration: 1.8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Progress bar */}
+          <motion.div
+            className="absolute top-0 left-0 h-full bg-blue-500 dark:bg-blue-400 rounded-full"
+            initial={{ width: 0 }}
+            animate={{ width: '80%' }}
+            transition={{ 
+              duration: 2,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut"
+            }}
+          />
+        </div>
+        
+        {/* Loading text with shimmer */}
         <motion.div
-          className="absolute top-0 left-0 h-full bg-gradient-to-r from-blue-500 to-cyan-400"
-          initial={{ width: 0 }}
-          animate={{ width: '100%' }}
-          transition={{ 
-            duration: 1.5,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut"
-          }}
-        />
-      </div>
-      
-      <div className="relative w-72 h-8 overflow-hidden">
-        <motion.div
-          className="absolute flex space-x-8"
-          initial={{ x: 0 }}
-          animate={{ x: '-100%' }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            ease: "linear"
-          }}
+          className="text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         >
-          {[...tickerItems, ...tickerItems].map((symbol, index) => (
-            <div key={index} className="flex items-center space-x-8">
-              <span className="text-lg font-mono font-bold text-gray-700">{symbol}</span>
-              <motion.span 
-                className="text-green-500 font-medium"
-                initial={{ opacity: 0.5 }}
-                animate={{ opacity: 1 }}
-                transition={{ 
-                  duration: 0.5,
-                  repeat: Infinity,
-                  repeatType: "reverse"
-                }}
-              >
-                +{(Math.random() * 5).toFixed(2)}%
-              </motion.span>
-            </div>
-          ))}
+          <motion.span
+            className="text-gray-700 dark:text-gray-300 font-medium text-sm"
+            animate={{ opacity: [0.8, 1, 0.8] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+            }}
+          >
+            Loading content...
+          </motion.span>
         </motion.div>
       </div>
     </div>

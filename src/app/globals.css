@@ -12,19 +12,82 @@
   --contentDarkBg: #121212;
   --navbarBg: #F5F5F5;
   --navbarDarkBg: #1E1E1E;
+  --glassBg: #f2f8f7ae;
+  --glassDarkBg: rgba(30, 30, 30, 0.8);
+  --sectionBg: #dfdcdce3;
+  --sectionDarkBg: #131313d6;
+  --footBg : #f5f5f5;
+  --footDarkBg: #1E1E1E;
+  
+  --gainerHeaderFrom: #f0fdf4;
+  --gainerHeaderDarkFrom: rgba(6, 78, 59, 0.3);
+
+  --gainerHeaderTo: #ecfdf5;
+  --gainerHeaderDarkTo:rgba(5, 122, 85, 0.2);
+
+  --gainerHeaderBorder: #dcfce7;
+  --gainerHeaderDarkBorder: rgba(22, 163, 74, 0.5);
+
+  --loserHeaderFrom: #fef2f2;
+  --loserHeaderDarkFrom: rgba(127, 29, 29, 0.3);
+
+  --loserHeaderTo: #fff1f2;
+  --loserHeaderDarkTo: rgba(190, 18, 60, 0.2);
+
+  --loserHeaderBorder: #fee2e2;
+  --loserHeaderDarkBorder: rgba(190, 18, 60, 0.3);
+
+  --gainerHoverBg: rgba(6, 95, 70, 0.1);
+  --gainerDarkHoverBg: rgba(6, 95, 70, 0.15);
+
+  --loserHoverBg: #fcd3d3a4;
+  --loserDarkHoverBg: rgba(193, 5, 5, 0.142);
+
+  --gainBadgeBg: rgba(16, 185, 129, 0.1);
+  --gainDarkBadgeBg: rgba(16, 185, 129, 0.15);
+  --lossBadgeBg: rgba(239, 68, 68, 0.1);
+  --lossDarkBadgeBg: rgba(239, 68, 68, 0.15);
 
   /* TEXT */
   --linkDarkColor:#90CAF9;
   --linkColor: #1E88E5;
-  --textColor: #212121;
+  --textColor: #212121; 
   --textDarkColor:#E0E0E0;
+  --lossTextColor: #d72020;
+  --lossDarkTextColor: #f40707;
+  --gainTextColor: #17b31f;
+  --gainDarkTextColor: #04e10b;
+
+  --heading: #9e9e9e;
+
+  --headingDark: #757575;
+  --paragraph: #757575;
+  --paragraphDark: #9e9e9e;
+  --gainBadgeText: #166534;
+  --gainBadgedarkText: #86efac;
+  --lossBadgeText: #7f1d1d;
+  --lossBadgeDarkText: #fecaca;
+
+  /* Border Shadow Divider */
+  --glassBorder: rgba(0, 0, 0, 0.1);
+  --glassDarkBorder: rgba(255, 255, 255, 0.1);
+  --glassShadow: rgba(0, 0, 0, 0.1);
+  --glassDarkShadow: rgba(255, 255, 255, 0.1);
+  --linkHoverColor: #1E88E5; 
+--linkDarkHoverColor: #90CAF9;
+
+
+
 
 
   /* LOGO */
   --logoGradientFrom: #1E88E5;
   --logoGradientTo: #43A047;
   --logoIcon:#057dd3;
-  
+  --bookmarkIcontext: #547a88;
+  --bookmarkIconDarktext: #90CAF9;
+  --bookmarkIconHover:#222;
+  --bookmarkIconDarkHover: #acdefb;
   
 
 }
@@ -49,25 +112,80 @@
   --color-textDarkColor:var(--textDarkColor);
   --color-navbarBg:var(--navbarBg);
   --color-navbarDarkBg:var(--navbarDarkBg);
+  --color-glassBg:var(--glassBg);
+  --color-glassDarkBg:var(--glassDarkBg);
+  --color-lossText:var(--lossTextColor);
+  --color-lossDarkText:var(--lossDarkTextColor);
+  --color-gainText:var(--gainTextColor);
+  --color-gainDarkText:var(--gainDarkTextColor);
+  --color-glassBorder:var(--glassBorder);
+  --color-glassDarkBorder:var(--glassDarkBorder);
+  --color-glassShadow:var(--glassShadow);
+  --color-glassDarkShadow:var(--glassDarkShadow);
+  --color-sectionBg:var(--sectionBg);
+  --color-sectionDarkBg:var(--sectionDarkBg);
+  --color-gainerHeaderFrom:var(--gainerHeaderFrom);
+  --color-gainerHeaderDarkFrom:var(--gainerHeaderDarkFrom);
+  --color-gainerHeaderTo:var(--gainerHeaderTo);
+  --color-gainerHeaderDarkTo:var(--gainerHeaderDarkTo);
+  --color-gainerHeaderBorder:var(--gainerHeaderBorder);
+  --color-gainerHeaderDarkBorder:var(--gainerHeaderDarkBorder);
+  --color-loserHeaderFrom:var(--loserHeaderFrom);
+  --color-loserHeaderDarkFrom:var(--loserHeaderDarkFrom);
+  --color-loserHeaderTo:var(--loserHeaderTo);
+  --color-loserHeaderDarkTo:var(--loserHeaderDarkTo);
+  --color-loserHeaderBorder:var(--loserHeaderBorder);
+  --color-loserHeaderDarkBorder:var(--loserHeaderDarkBorder);
+  --color-gainerHoverBg:var(--gainerHoverBg);
+  --color-gainerDarkHoverBg:var(--gainerDarkHoverBg);
+  --color-loserHoverBg:var(--loserHoverBg);
+  --color-loserDarkHoverBg:var(--loserDarkHoverBg);
+  --color-gainBadgeBg:var(--gainBadgeBg);
+  --color-gainDarkBadgeBg:var(--gainDarkBadgeBg);
+  --color-lossBadgeBg:var(--lossBadgeBg);
+  --color-lossDarkBadgeBg:var(--lossDarkBadgeBg);
+  --color-gainBadgeText:var(--gainBadgeText);
+  --color-gainBadgedarkText:var(--gainBadgedarkText);
+  --color-lossBadgeText:var(--lossBadgeText);
+  --color-lossBadgeDarkText:var(--lossBadgeDarkText);
+  --color-heading:var(--heading);
+  --color-headingDark:var(--headingDark);
+  --color-paragraph:var(--paragraph);
+  --color-paragraphDark:var(--paragraphDark);
+  --color-bookmarkIcontext:var(--bookmarkIcontext);
+  --color-bookmarkIconDarktext:var(--bookmarkIconDarktext);
+  --color-bookmarkIconHover:var(--bookmarkIconHover);
+  --color-bookmarkIconDarkHover:var(--bookmarkIconDarkHover); 
+  --color-footBg:var(--footBg);
+  --color-footDarkBg:var(--footDarkBg);  
+  --color-linkHover:var(--linkHoverColor);
+  --color-linkDarkHover:var(--linkDarkHoverColor);
 }
 
-/* Headings: Poppins (SemiBold / Bold)
+@theme{
+  --animate-spinner:spinner 1.5s linear infinite;
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+    
+  }
+  
 
-Body Text: Roboto (Regular)
-
-UI Elements / Numbers: Roboto Mono (for tables, tickers)
- */
+  --animate-marquee: marquee 40s linear infinite;
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  
+}
+}
 
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
 
-@keyframes pulse {
-          0%, 100% { opacity: 0.8; transform: scaleY(1); }
-          50% { opacity: 1; transform: scaleY(1.05); }
-        }
-        @keyframes bounce {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-3px); }
-        }
+
