@@ -22,7 +22,7 @@ export default function SavedStocksPage() {
 
   return (
     <div className="min-h-screen bg-linear-180 from-[#f1fafc] to-[#b1e2f5d2] dark:bg-linear-180 dark:from-[#09090a] dark:to-[#00050c]">
-      <div className="max-w-full sm:max-w-3xl md:max-w-7xl mx-auto px-3 sm:px-4 py-20 sm:py-10 ">
+      <div className="max-w-full sm:max-w-3xl md:max-w-7xl mx-auto px-3 sm:px-4 py-20 md:py-28 sm:py-10 ">
         
         {/* Page Heading */}
         <div className="mb-6 sm:mb-10 text-center">
