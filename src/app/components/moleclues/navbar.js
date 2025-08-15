@@ -6,6 +6,7 @@ import { FaBars } from "react-icons/fa";
 import useDarkMode from "@/app/hooks/useDarkMode";
 import MobileSideMenu from "./mobileSideMenu";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
+import {motion} from 'motion/react';
 
 const Navbar = () => {
   const { isDarkMode, toggleMode } = useDarkMode();
@@ -25,12 +26,15 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-x-8 font-medium font-roboto text-link dark:text-linkDark">
           <Link href={"/"} className="hover:text-primary transition-colors">Home</Link>
           <Link href={"/saved"} className="hover:text-primary transition-colors">Saved</Link>
-          <button
+          <motion.button
+          initial={{ opacity: 0, scale: 0.8,rotate: 0 }}
+          animate={{ opacity: 1, scale: 1,rotate: isDarkMode ? 180 : 0 }}
+          transition={{ duration: 0.8, type: "spring", stiffness: 300 }}
             onClick={toggleMode}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
           >
-            {isDarkMode ? <BsFillMoonFill size={18}/> : <BsFillSunFill size={18}/>}
-          </button>
+            {isDarkMode ?<BsFillSunFill /> :<BsFillMoonFill /> }
+          </motion.button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -38,7 +42,7 @@ const Navbar = () => {
           className="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
           onClick={toggleMenu}
         >
-          <FaBars size={20} className="text-link dark:text-linkDark" />
+          <FaBars  className="text-link dark:text-linkDark text-lg" />
         </button>
       </nav>
 

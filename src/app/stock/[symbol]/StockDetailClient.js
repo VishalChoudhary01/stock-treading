@@ -5,12 +5,10 @@ import StockChart from "@/app/components/organism/StockChart";
 import Loader from "@/app/components/templates/loaders/loader";
 import ErrorComponent from "@/app/components/templates/Error";
 import apiClient from "@/app/lib/api/apiClients";
-import { useParams } from "next/navigation";
 import Head from "next/head";
+import {motion} from 'motion/react';
 
-export default function StockDetailClient({ initialData }) {
-  const params = useParams();
-  const symbol = params.symbol;
+export default function StockDetailClient({ initialData, symbol }) {
    const stockName = initialData?.stockName || symbol;
 
   const [priceData, setPriceData] = useState(initialData);
@@ -100,7 +98,7 @@ export default function StockDetailClient({ initialData }) {
             </div>
           </div>
 
-          <div className={`flex items-center gap-1.5 sm:gap-2 text-lg sm:text-xl font-semibold ${isUp ? "text-green-500" : "text-red-500"}`}>
+          <div className={`flex items-center gap-1.5 sm:gap-2 text-lg sm:text-xl font-semibold ${isUp ? "text-gainText dark:text-gainDarkText" : "text-lossText dark:text-lossDarkText"}`}>
             {isUp ? <FaArrowUp /> : <FaArrowDown />}
             ₹{latest.toFixed(2)} ({changePercent}%)
           </div>
@@ -114,12 +112,16 @@ export default function StockDetailClient({ initialData }) {
             { label: "Low", value: Math.min(...priceData.map(p => p.low)).toFixed(2) },
             { label: "Volume", value: priceData.reduce((sum, p) => sum + p.volume, 0).toLocaleString() }
           ].map((stat, index) => (
-            <div key={index} className="bg-glassBg dark:bg-glassDarkBg p-3 sm:p-4 rounded-lg shadow">
+            <motion.div
+              initial={{ opacity: 0, x: 80,scale: 0.9 }}
+              animate={{ opacity: 1, x: 0 ,scale: 1 }}
+              transition={{ delay: index * 0.3,duration: 0.3 }}
+            key={index} className="bg-glassBg dark:bg-glassDarkBg p-3 sm:p-4 rounded-lg shadow">
               <p className="text-xs sm:text-sm">{stat.label}</p>
               <p className="text-lg sm:text-xl font-semibold">
                 {stat.label === "Volume" ? stat.value : `₹${stat.value}`}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
