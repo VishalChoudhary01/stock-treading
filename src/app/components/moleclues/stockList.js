@@ -42,7 +42,7 @@ export default function StockList({ gainers, losers }) {
       {/* Bookmark */}
       <button
         onClick={(e) => toggleBookmark(stock, e)}
-        className="absolute top-3 left-3 sm:static sm:mr-3 cursor-pointer z-10 transition-colors"
+        className="absolute md:top-3 top-5 left-3 sm:static sm:mr-3 cursor-pointer z-10 transition-colors"
         aria-label={savedStocks[stock.id] ? "Remove bookmark" : "Add bookmark"}
       >
         {savedStocks[stock.id] ? (
@@ -54,13 +54,13 @@ export default function StockList({ gainers, losers }) {
 
       {/* Stock Info */}
       <div className="pl-8 sm:pl-0 flex-1">
-        <div className="flex flex-col sm:flex-row sm:items-center">
+        <div className="flex flex-row items-center gap-x-3 ">
           <span className="font-bold text-textColor dark:text-textDarkColor text-sm sm:text-base md:text-lg truncate">
             {stock.symbol}
           </span>
           <span
-            className={`mt-1 sm:mt-0 sm:ml-3 px-2 py-0.5 rounded-full truncate max-w-[100px] sm:max-w-none
-              text-[10px] sm:text-xs 
+            className={`mt-1 sm:mt-0 sm:ml-3 px-2 py-0.5  rounded-full truncate max-w-[100px] sm:max-w-none
+              text-[12px] sm:text-xs 
               ${isGainer
                 ? "bg-gainBadgeBg dark:bg-gainDarkBadgeBg text-gainBadgeText dark:text-gainBadgedarkText"
                 : "bg-lossBadgeBg dark:bg-lossDarkBadgeBg text-lossBadgeText dark:text-lossBadgeDarkText"
@@ -72,7 +72,7 @@ export default function StockList({ gainers, losers }) {
       </div>
 
       {/* Price & Change */}
-      <div className="mt-2 sm:mt-0 text-right min-w-[90px]">
+      <div className="mt-2  sm:mt-0 text-right min-w-[90px]">
         <div
           className={`font-semibold text-sm sm:text-base md:text-lg 
             ${isGainer
@@ -82,9 +82,9 @@ export default function StockList({ gainers, losers }) {
         >
           ₹{stock.close?.toFixed(2) || "N/A"}
         </div>
-        <div className="flex sm:justify-end gap-1 sm:gap-2 mt-1">
+        <div className="flex justify-end gap-1   sm:gap-2 mt-1">
           <span
-            className={`px-1.5 py-0.5 rounded text-[10px] sm:text-xs md:text-sm 
+            className={`px-1.5 py-0.5 rounded text-[12px] sm:text-xs md:text-sm 
               ${isGainer
                 ? "bg-gainBadgeBg text-gainBadgeText dark:text-gainBadgedarkText"
                 : "bg-lossBadgeBg text-lossBadgeText dark:text-lossBadgeDarkText"
@@ -94,7 +94,7 @@ export default function StockList({ gainers, losers }) {
             {stock.change?.toFixed(2) || "0.00"}
           </span>
           <span
-            className={`px-1.5 py-0.5 rounded text-[10px] sm:text-xs md:text-sm
+            className={`px-1.5 py-0.5 rounded text-[12px] sm:text-xs md:text-sm
               ${isGainer
                 ? "bg-gainBadgeBg text-gainBadgeText dark:text-gainBadgedarkText"
                 : "bg-lossBadgeBg text-lossBadgeText dark:text-lossBadgeDarkText"
@@ -104,7 +104,7 @@ export default function StockList({ gainers, losers }) {
             {stock.percent?.toFixed(2) || "0.00"}%
           </span>
         </div>
-        <div className="text-[10px] sm:text-xs text-paragraph dark:text-paragraphDark mt-1">
+        <div className="text-[12px] sm:text-xs text-paragraph dark:text-paragraphDark mt-1">
           VOL: {formatNumber(stock.volume)}
         </div>
       </div>
