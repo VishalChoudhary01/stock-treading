@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "./components/moleclues/footer";
 import Navbar from "./components/moleclues/navbar";
 import ClientProvider from "./components/provider/clientProvider";
+import ThemeInitializer from "./features/ThemeInitializer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -60,6 +61,7 @@ export default function RootLayout({ children }) {
         className={`${poppins.variable} ${kanit.variable} ${roboto.variable} ${robotoMono.variable} antialiased flex flex-col min-h-screen bg-contentBg dark:bg-contentDarkBg  text-textColor dark:text-textDarkColor duration-700 transition-all `}
       >
         <ClientProvider>
+          <ThemeInitializer/>
           <Navbar />
           <main className="grow ">{children}</main>
           <Footer />
