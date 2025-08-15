@@ -34,7 +34,6 @@ export default function SavedStocksPage() {
           </p>
         </div>
 
-        {/* Empty State */}
         {savedStocks.gainers.length === 0 && savedStocks.losers.length === 0 ? (
           <div className="bg-glassBg dark:bg-glassDarkBg rounded-xl shadow-lg p-6 sm:p-10 text-center">
             <h2 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">

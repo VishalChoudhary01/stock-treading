@@ -7,6 +7,7 @@ import StockList from "@/app/components/moleclues/stockList";
 import apiClient from "@/app/lib/api/apiClients";
 import banner from "../../public/banner/banner.jpg";
 import Loader from "./components/templates/loaders/loader";
+import {motion} from 'motion/react'
 
 
 
@@ -46,20 +47,32 @@ export default function Home() {
         />
         <div className="absolute  inset-0 bg-black/10 backdrop-blur-sm" />
         <div className="relative z-10 text-center text-white px-4 max-w-2xl md:mt-32 ">
-          <h1 className="text-3xl md:text-5xl font-bold">Stocks</h1>
-          <p className="mt-4 text-gray-200">
+          <motion.h1
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }} 
+          className="text-3xl md:text-5xl font-bold">Stocks</motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+           className="mt-4 text-gray-200">
             Search and track your favorite stocks with real-time price data & charts.
-          </p>
+          </motion.p>
           <div className="md:mt-8">
             <SearchBar />
           </div>
         </div>
       </section>
 
-      <section className="md:max-w-7xl mx-auto px-4 md:pb-40 md:pt-11 py-14 ">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+       className="md:max-w-7xl mx-auto px-4 md:pb-40 md:pt-11 py-14 ">
         {console.log("Data:", data)}
         <StockList gainers={data.gainers} losers={data.losers} />
-      </section>
+      </motion.section>
     </div>
   );
 }

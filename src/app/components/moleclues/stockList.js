@@ -1,12 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import {
-  FaArrowUp,
-  FaArrowDown,
-  FaBookmark,
-  FaRegBookmark,
-} from "react-icons/fa";
+import {FaArrowUp,FaArrowDown,FaBookmark,FaRegBookmark,} from "react-icons/fa";
 
 export default function StockList({ gainers, losers }) {
   const router = useRouter();

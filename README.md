@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Installation
 
-## Getting Started
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/VishalChoudhary01/stock-treading.git
+    cd tred-brains
+    ```
 
-First, run the development server:
+2. **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+3. **Start the application:**
+    ```bash
+    npm run dev
+    ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open your browser and navigate to `http://localhost:3000` to view the app.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Dependencies Used
 
-## Learn More
+This project uses the following main dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+- **@reduxjs/toolkit** and **react-redux**: For state management using Redux.
+- **axios**: For making HTTP requests to APIs.
+- **chart.js** and **react-chartjs-2**: For rendering interactive charts and graphs.
+- **motion**: For animations and transitions.
+- **nextjs**: The React framework for server-side rendering and routing.
+- **react** and **react-dom**: The core libraries for building the user interface.
+- **react-icons**: For including icon sets in the UI.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Where They Are Used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Redux Toolkit & React Redux**: Used for managing for theme switcher the app.
+- **Axios**: Used in API utility files and components to fetch stock data and other resources.
+- **Chart.js & React Chartjs 2**: Used in dashboard and analytics components to display stock trends and data visualizations.
+- **Motion**: Used in UI components for smooth animations and transitions.
+- **Next.js**: Provides the app structure, routing, and server-side rendering.
+- **React Icons**: Used in navigation bars, buttons, and other UI elements for visual icons.
 
-## Deploy on Vercel
+### Dev Dependencies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **ESLint & eslint-config-next**: For code linting and maintaining code quality.
+- **Tailwind CSS**: For utility-first CSS styling.
+- **@tailwindcss/postcss**: For integrating Tailwind CSS with PostCSS.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+You can find all dependencies listed in the `package.json` file.
