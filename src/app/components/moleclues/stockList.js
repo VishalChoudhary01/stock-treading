@@ -42,7 +42,7 @@ export default function StockList({ gainers, losers }) {
       {/* Bookmark */}
       <button
         onClick={(e) => toggleBookmark(stock, e)}
-        className="absolute md:top-3 top-5 left-3 sm:static sm:mr-3 cursor-pointer z-10 transition-colors"
+        className="absolute md:top-3 top-5 left-3 sm:static sm:mr-3 cursor-pointer  transition-colors"
         aria-label={savedStocks[stock.id] ? "Remove bookmark" : "Add bookmark"}
       >
         {savedStocks[stock.id] ? (

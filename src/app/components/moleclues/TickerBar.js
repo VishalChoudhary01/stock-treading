@@ -5,7 +5,7 @@ export default function TickerBar({ stocks }) {
   if (!stocks || !stocks.length) return null;
 
   return (
-    <div className="bg-glassBg fixed z-10 md:top-16 top-12 dark:bg-glassDarkBg backdrop-blur-3xl border-b border-glassBorder dark:border-glassDarkBorder overflow-hidden">
+    <div className="bg-glassBg fixed z-20 md:top-16 top-12 dark:bg-glassDarkBg backdrop-blur-3xl border-b border-glassBorder dark:border-glassDarkBorder overflow-hidden">
       <div className="flex animate-marquee whitespace-nowrap">
         {[...stocks, ...stocks].map((stock, idx) => {
           const isUp = stock.close > stock.open;

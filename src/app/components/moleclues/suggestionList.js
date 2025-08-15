@@ -6,7 +6,7 @@ const SuggestionList = ({ suggestions = [], loading, onSelect }) => {
   if (!loading && !suggestions.length) return null;
 
   return (
-    <ul className="absolute z-10 w-full bg-sectionBg dark:bg-sectionDarkBg backdrop-blur-2xl border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg mt-1 max-h-60 overflow-auto">
+    <ul className="absolute z-10 w-full bg-sectionBg dark:bg-sectionDarkBg backdrop-blur-3xl border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg mt-1 max-h-60 overflow-auto scrollbar">
       {loading ? (
         <li className="flex items-center justify-center py-4">
           <AutoCompleteSpinner />
@@ -15,7 +15,7 @@ const SuggestionList = ({ suggestions = [], loading, onSelect }) => {
         suggestions.map((stock) => (
           <li
             key={stock.symbol}
-            className="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex justify-between items-center"
+            className="px-4 py-3 backdrop-blur-3xl hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex justify-between items-center"
             onClick={() => onSelect(stock)}
           >
             <div>

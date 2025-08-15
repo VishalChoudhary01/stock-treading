@@ -48,3 +48,45 @@ This project uses the following main dependencies:
 - **@tailwindcss/postcss**: For integrating Tailwind CSS with PostCSS.
 
 You can find all dependencies listed in the `package.json` file.
+
+# Screenshots
+## ***Desktop*** 
+## Home Page ( Dark Mode)
+![alt text](image.png)
+
+## Home Page ( Light Mode)
+![alt text](image-1.png)
+
+## Auto complete Search ( Dark Mode)
+![alt text](image-9.png)
+
+## Stocks Data ( Light Mode)
+![alt text](image-2.png)
+
+## Stocks Data ( Dark Mode)
+![alt text](image-3.png)
+
+## Bookmark ( Dark Mode)
+![alt text](image-4.png)
+
+## Stock details & Chart ( Dark Mode)
+![alt text](image-5.png)
+
+# ***Mobile***
+## Home Page ( Dark Mode)
+![alt text](image-6.png)
+
+## Auto complete Search ( Dark Mode)
+![alt text](image-7.png)
+
+## Stock Detail with Chart ( Light Mode)
+![alt text](image-10.png)
+
+## Stock Detail with Chart ( Dark Mode)
+![alt text](image-11.png)
+
+## Saved Stock ( Dark Mode)
+![alt text](image-12.png)
+
+
+

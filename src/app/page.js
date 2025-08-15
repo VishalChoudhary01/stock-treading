@@ -36,7 +36,7 @@ export default function Home() {
     <div className="min-h-screen bg-linear-180 from-[#f1fafc] to-[#b1e2f5d2] dark:bg-linear-180 dark:from-[#09090a] dark:to-[#00050c]">
       <TickerBar stocks={[...(data.gainers || []), ...(data.losers || [])]} />
 
-      <section className="relative w-full md:h-[85vh] h-[48vh] flex items-center justify-center ">
+      <section className="relative w-full md:h-[85vh] h-[52vh] flex items-center justify-center md:pt-7 pt-11 ">
         <Image
           src={banner}
           alt="Stock market background"
@@ -46,7 +46,7 @@ export default function Home() {
           className="object-cover"
         />
         <div className="absolute  inset-0 bg-black/10 backdrop-blur-sm" />
-        <div className="relative z-10 text-center text-white px-4 max-w-2xl md:mt-32 ">
+        <div className="relative z-10 text-center text-white px-4 max-w-2xl md:space-y-6 space-y-3.5 ">
           <motion.h1
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-           className="mt-4 text-gray-200">
+           className="mt-4 text-neutral-100  md:text-lg text-[1.1rem]">
             Search and track your favorite stocks with real-time price data & charts.
           </motion.p>
           <div className="md:mt-8">

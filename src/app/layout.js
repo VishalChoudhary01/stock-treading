@@ -58,7 +58,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${kanit.variable} ${roboto.variable} ${robotoMono.variable} antialiased flex flex-col min-h-screen bg-contentBg dark:bg-contentDarkBg  text-textColor dark:text-textDarkColor duration-700 transition-all `}
+        className={`${poppins.variable} ${kanit.variable} ${roboto.variable} ${robotoMono.variable} antialiased flex flex-col min-h-screen bg-contentBg dark:bg-contentDarkBg  text-textColor dark:text-textDarkColor duration-700 transition-all scrollbar `}
       >
         <ClientProvider>
           <ThemeInitializer/>

@@ -14,7 +14,7 @@
   --navbarDarkBg: #1E1E1E;
   --glassBg: #f2f8f7ae;
   --glassDarkBg: rgba(30, 30, 30, 0.8);
-  --sectionBg: #dfdcdce3;
+  --sectionBg: #dfdcdcbb;
   --sectionDarkBg: #131313d6;
   --footBg : #f5f5f5;
   --footDarkBg: #1E1E1E;
@@ -185,6 +185,29 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 5px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #484b4bc0;
+  width: 4px;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    width: thin;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #003e70;
 }
 
 
