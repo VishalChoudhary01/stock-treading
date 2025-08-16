@@ -9,21 +9,23 @@ import Head from "next/head";
 import {motion} from 'motion/react';
 
 export default function StockDetailClient({ initialData, symbol }) {
-   const stockName = initialData?.stockName || symbol;
-
+  
+  const stockName = initialData?.stockName || symbol;
   const [priceData, setPriceData] = useState(initialData);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [timePeriod, setTimePeriod] = useState(1);
   const isInitialMount = useRef(true);
 
+  // initial 
   useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
       return;
     }
 
-    const fetchPriceData = async () => {
+    // Call Api
+   const fetchPriceData = async () => {
       setLoading(true);
       try {
         const data = await apiClient.get(
@@ -56,6 +58,14 @@ export default function StockDetailClient({ initialData, symbol }) {
   const changePercent = ((change / firstClose) * 100).toFixed(2);
   const isUp = change >= 0;
 
+  const stats = [
+            { label: "Open", value: priceData[0].open.toFixed(2) },
+            { label: "High", value: Math.max(...priceData.map(p => p.high)).toFixed(2) },
+            { label: "Low", value: Math.min(...priceData.map(p => p.low)).toFixed(2) },
+            { label: "Volume", value: priceData.reduce((sum, p) => sum + p.volume, 0).toLocaleString() }
+          ]
+
+          
   return (
     <>
       <Head>
@@ -81,8 +91,16 @@ export default function StockDetailClient({ initialData, symbol }) {
         {/* Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 sm:mb-6 gap-3 sm:gap-4">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold">{symbol}</h1>
-            <div className="flex items-center mt-1 sm:mt-3">
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, type: "spring", stiffness: 300 }}
+            className="text-2xl sm:text-3xl font-bold">{symbol}</motion.h1>
+            <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, type: "spring", stiffness: 300 }}
+            className="flex items-center mt-1 sm:mt-3">
               <select
                 value={timePeriod}
                 onChange={(e) => setTimePeriod(Number(e.target.value))}
@@ -95,27 +113,27 @@ export default function StockDetailClient({ initialData, symbol }) {
                 <option value={180}>6 Months</option>
                 <option value={365}>1 Year</option>
               </select>
-            </div>
+            </motion.div>
           </div>
 
-          <div className={`flex items-center gap-1.5 sm:gap-2 text-lg sm:text-xl font-semibold ${isUp ? "text-gainText dark:text-gainDarkText" : "text-lossText dark:text-lossDarkText"}`}>
+          <motion.div
+          initial={{opacity:0,x:80}}
+          animate={{opacity:1,x:0}}
+          transition={{ duration: 0.5, type: "tween", stiffness: 100 }}
+           className={`flex items-center gap-1.5 sm:gap-2 text-lg sm:text-xl font-semibold ${isUp ? "text-gainText dark:text-gainDarkText" : "text-lossText dark:text-lossDarkText"}`}>
             {isUp ? <FaArrowUp /> : <FaArrowDown />}
             ₹{latest.toFixed(2)} ({changePercent}%)
-          </div>
+          </motion.div>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-4 sm:mb-6">
-          {[
-            { label: "Open", value: priceData[0].open.toFixed(2) },
-            { label: "High", value: Math.max(...priceData.map(p => p.high)).toFixed(2) },
-            { label: "Low", value: Math.min(...priceData.map(p => p.low)).toFixed(2) },
-            { label: "Volume", value: priceData.reduce((sum, p) => sum + p.volume, 0).toLocaleString() }
-          ].map((stat, index) => (
+          {stats.map((stat, index) => (
             <motion.div
               initial={{ opacity: 0, x: 80,scale: 0.9 }}
               animate={{ opacity: 1, x: 0 ,scale: 1 }}
-              transition={{ delay: index * 0.3,duration: 0.3 }}
+              transition={{ delay: index * 0.3,duration: 0.3, type: "spring", stiffness: 300 }}
+              
             key={index} className="bg-glassBg dark:bg-glassDarkBg p-3 sm:p-4 rounded-lg shadow">
               <p className="text-xs sm:text-sm">{stat.label}</p>
               <p className="text-lg sm:text-xl font-semibold">

@@ -7,20 +7,24 @@ export default function StockList({ gainers, losers }) {
   const router = useRouter();
   const [savedStocks, setSavedStocks] = useState({});
 
+  // Load saved stocks from localStorage on initial render
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("savedStocks")) || {};
     setSavedStocks(saved);
   }, []);
 
+  // Format number with commas
   const formatNumber = (num) => {
     if (!num) return "0";
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
+  // Toggle bookmark state
   const toggleBookmark = (stock, e) => {
     e.stopPropagation();
     const newSavedStocks = { ...savedStocks };
 
+    
     if (newSavedStocks[stock.id]) {
       delete newSavedStocks[stock.id];
     } else {
@@ -120,7 +124,7 @@ export default function StockList({ gainers, losers }) {
             <span className="bg-gainText text-white rounded-full w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex items-center justify-center mr-2 md:mr-3">
               <FaArrowUp className="text-[10px] sm:text-xs md:text-sm" />
             </span>
-            Top Gainers{" "}
+            Top Gainers
             <span className="text-gainText ml-1 md:ml-2 text-xs sm:text-sm md:text-base font-normal">
               ({gainers?.length || 0})
             </span>
@@ -140,7 +144,7 @@ export default function StockList({ gainers, losers }) {
             <span className="bg-lossText text-white rounded-full w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 flex items-center justify-center mr-2 md:mr-3">
               <FaArrowDown className="text-[10px] sm:text-xs md:text-sm" />
             </span>
-            Top Losers{" "}
+            Top Losers
             <span className="text-lossText ml-1 md:ml-2 text-xs sm:text-sm md:text-base font-normal">
               ({losers?.length || 0})
             </span>
