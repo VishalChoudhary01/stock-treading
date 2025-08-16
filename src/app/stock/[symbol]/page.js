@@ -4,17 +4,10 @@ import StockDetailClient from './StockDetailClient';
 
 export async function generateMetadata({ params }) {
   const { symbol } = params;
-  
   try {
-    const priceData = await apiClient.get(
-      `/api/assignment/stock/${symbol}/prices`,
-      {
-        params: {
-          days: 1,
-          type: "INTRADAY",
-        }
-      }
-    );
+    const priceData = await apiClient.get(`/api/assignment/stock/${symbol}/prices`, {
+      params: { days: 1, type: "INTRADAY" }
+    });
 
     if (!priceData || priceData.length === 0) return defaultMetadata(symbol);
 
@@ -26,34 +19,19 @@ export async function generateMetadata({ params }) {
 
     return {
       title: `${symbol} Stock - ₹${latest.toFixed(2)} (${isUp ? '+' : ''}${changePercent}%) | Tred Brains`,
-      description: `Track ${symbol} stock performance with real-time prices, charts, and technical analysis. Current price: ₹${latest.toFixed(2)} (${isUp ? '+' : ''}${changePercent}%).`,
-      keywords: [
-        `${symbol} stock`,
-        `${symbol} share price`,
-        `${symbol} stock chart`,
-        `${symbol} technical analysis`,
-        `${symbol} stock forecast`,
-        "stock market",
-        "stock tracker",
-        "NSE stock prices",
-        "BSE stock prices",
-        "Tred Brains"
-      ],
+      description: `Track ${symbol} stock performance with real-time prices and charts.`,
       openGraph: {
         title: `${symbol} Stock Price | Tred Brains`,
-        description: `Real-time ${symbol} stock performance with interactive charts and technical indicators`,
+        description: `Live ${symbol} stock updates, technical analysis and charts.`,
         url: `https://portal.tradebrains.in/stock/${symbol}`,
-        siteName: "Tred Brains",
         images: [
           {
-            url: `/api/og?symbol=${symbol}&price=${latest.toFixed(2)}&change=${changePercent}`, // Dynamic OG image
+            url: `/api/og?symbol=${symbol}&price=${latest.toFixed(2)}&change=${changePercent}`,
             width: 1200,
             height: 630,
             alt: `${symbol} Stock Chart`,
           },
         ],
-        locale: "en_US",
-        type: "website",
       },
       twitter: {
         card: "summary_large_image",
@@ -62,7 +40,7 @@ export async function generateMetadata({ params }) {
         images: [`/api/og?symbol=${symbol}&price=${latest.toFixed(2)}&change=${changePercent}`],
       },
     };
-  } catch (error) {
+  } catch {
     return defaultMetadata(symbol);
   }
 }
@@ -70,30 +48,16 @@ export async function generateMetadata({ params }) {
 function defaultMetadata(symbol) {
   return {
     title: `${symbol} Stock Details | Tred Brains`,
-    description: `View ${symbol} stock details, price history, and technical analysis`,
-    keywords: [
-      `${symbol} stock`,
-      "stock market",
-      "stock tracker",
-      "Tred Brains"
-    ],
+    description: `View ${symbol} stock details, price history, and technical analysis`
   };
 }
 
 export default async function Page({ params }) {
   const { symbol } = params;
-  const timePeriod = 1;
-
   try {
-    const priceData = await apiClient.get(
-      `/api/assignment/stock/${symbol}/prices`,
-      {
-        params: {
-          days: timePeriod,
-          type: "INTRADAY",
-        }
-      }
-    );
+    const priceData = await apiClient.get(`/api/assignment/stock/${symbol}/prices`, {
+      params: { days: 1, type: "INTRADAY" }
+    });
 
     if (!priceData || priceData.length === 0) {
       return notFound();

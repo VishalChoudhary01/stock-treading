@@ -1,39 +1,26 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import SearchBar from "@/app/components/moleclues/searchBar";
 import TickerBar from "@/app/components/moleclues/TickerBar";
 import StockList from "@/app/components/moleclues/stockList";
 import banner from "../../public/banner/banner.jpg";
-import Loader from "./components/templates/loaders/loader";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 export default function HomeClient({ initialData }) {
-  const [data, setData] = useState(initialData);
-  const [loading, setLoading] = useState(!initialData);
+  if (!initialData) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <p className="text-lg text-gray-500">Failed to load data. Please try again later.</p>
+      </div>
+    );
+  }
 
-  useEffect(() => {
-    if (!initialData) {
-      const fetchData = async () => {
-        try {
-          setLoading(true);
-          const res = await apiClient.get("/api/assignment/index/NIFTY/movers/");
-          setData(res);
-        } catch (error) {
-          console.error("Error fetching stock movers:", error);
-        } finally {
-          setLoading(false);
-        }
-      };
-      fetchData();
-    }
-  }, [initialData]);
-
-  if (loading) return <Loader />;
+  const { gainers = [], losers = [] } = initialData;
 
   return (
-    <div className="min-h-screen  ">
-      <TickerBar stocks={[...(data?.gainers || []), ...(data?.losers || [])]} />
+    <div className="min-h-screen">
+      <TickerBar stocks={[...gainers, ...losers]} />
 
       <section className="relative w-full md:h-[85vh] h-[52vh]">
         <Image
@@ -77,10 +64,7 @@ export default function HomeClient({ initialData }) {
         whileInView={{ opacity: 1, y: 0 }}
         className="md:max-w-7xl mx-auto px-4 md:pb-40 md:pt-11 py-14"
       >
-        <StockList 
-          gainers={data?.gainers || []} 
-          losers={data?.losers || []} 
-        />
+        <StockList gainers={gainers} losers={losers} />
       </motion.section>
     </div>
   );
