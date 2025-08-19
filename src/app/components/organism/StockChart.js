@@ -23,7 +23,6 @@ ChartJS.register(
 function StockChart({ symbol, priceData, timePeriod }) {
   if (!priceData || !priceData.length) return null;
 
-  // Grab Tailwind theme colors from CSS variables
   const getThemeColor = (variableName) => {
     if (typeof window !== "undefined") {
       return getComputedStyle(document.documentElement)
@@ -35,7 +34,7 @@ function StockChart({ symbol, priceData, timePeriod }) {
 
   const colors = useMemo(() => {
     return {
-      gain: getThemeColor("--color-gainText") || "#16a34a", // fallback
+      gain: getThemeColor("--color-gainText") || "#16a34a", 
       gainBg: getThemeColor("--color-gainBadgeBg") || "rgba(22,163,74,0.1)",
       loss: getThemeColor("--color-lossText") || "#dc2626",
       lossBg: getThemeColor("--color-lossBadgeBg") || "rgba(220,38,38,0.1)",
@@ -113,7 +112,7 @@ function StockChart({ symbol, priceData, timePeriod }) {
   };
 
   return (
-    <div className="bg-cardBg dark:bg-cardDarkBg transition-all duration-300 p-4 rounded-lg shadow h-[400px]">
+    <div className="bg-cardBg dark:bg-cardDarkBg transition-all duration-300 p-4 rounded-lg shadow md:h-[400px] h-[300px]">
       <Line data={chartData} options={chartOptions} />
     </div>
   );

@@ -54,12 +54,12 @@ const SearchBar = () => {
 
   return (
     <div className="relative">
-      <div className="flex items-center">
+      <div className="flex items-center font-poppins">
         <Input
           value={searchTerm}
           onInputChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Search Stocks..."
-          inputStyle="w-full h-12 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:dark:ring-blue-300/15 dark:bg-neutral-800/30 dark:border-gray-600 dark:text-white placeholder:text-gray-200 dark:placeholder:text-gray-200/80"
+          inputStyle="w-full h-12 px-4 font-poppins border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:dark:ring-blue-300/15 dark:bg-neutral-800/30 dark:border-gray-600 dark:text-white placeholder:text-gray-200 dark:placeholder:text-gray-200/80"
         />
         {searchTerm && (
           <button 

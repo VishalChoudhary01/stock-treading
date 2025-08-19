@@ -31,7 +31,7 @@ const Navbar = () => {
           animate={{ opacity: 1, scale: 1,rotate: isDarkMode ? 180 : 0 }}
           transition={{ duration: 0.8, type: "spring", stiffness: 300 }}
             onClick={toggleMode}
-            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            className="p-2 rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
           >
             {isDarkMode ?<BsFillSunFill /> :<BsFillMoonFill /> }
           </motion.button>
