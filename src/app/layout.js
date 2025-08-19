@@ -1,4 +1,4 @@
-import { Poppins, Roboto, Roboto_Mono, Kanit } from "next/font/google";
+import { Poppins, Roboto, Roboto_Mono,Kanit } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/moleclues/footer";
 import Navbar from "./components/moleclues/navbar";
